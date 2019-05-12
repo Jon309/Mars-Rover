@@ -30,7 +30,7 @@ public class Rover {
         return currentDirection;
     }
 
-    public void getDirectionIndex(char currentDirection){
+    private void getDirectionIndex(char currentDirection){
         int index = 0;
         if(currentDirection == 'N')
             currentIndex = 0;
@@ -47,21 +47,21 @@ public class Rover {
 
 
     // Validations
-    public boolean isValidDirection(char currentDirection){
+    private boolean isValidDirection(char currentDirection){
         if (currentDirection == 'N' || currentDirection == 'E' || currentDirection == 'S' || currentDirection == 'W')
             return true;
         else
             return false;
     }
 
-    public boolean isValidCommand(char currentCommand){
+    private boolean isValidCommand(char currentCommand){
         if (currentCommand == 'L' || currentCommand == 'R' || currentCommand == 'M')
             return true;
         else
             return false;
     }
 
-    public boolean hasReachedEdge(char currentDirection){
+    private boolean hasReachedEdge(char currentDirection){
         if (currentDirection == 'N' && y == Mars.getMaxY()){
             return true;
         }
@@ -81,7 +81,7 @@ public class Rover {
 
 
     void changeDirection(char currentCommand){
-        if(isValidCommand(currentCommand)==true) {
+        if(isValidCommand(currentCommand)) {
 
             if (currentCommand == 'L') {
                 lowerIndex();
@@ -98,7 +98,7 @@ public class Rover {
 
     }
 
-    public void increaseIndex(){
+    private void increaseIndex(){
         if (currentIndex==3){
             currentIndex=0;
         }
@@ -109,7 +109,7 @@ public class Rover {
 
     }
 
-    public void lowerIndex(){
+    private void lowerIndex(){
         if (currentIndex==0){
             currentIndex=3;
         }
@@ -125,7 +125,7 @@ public class Rover {
 
 
     // Movement
-    void moveVertical(char currentDirection){
+    private void moveVertical(char currentDirection){
         if (!hasReachedEdge(currentDirection)){
             if (currentDirection == 'N')
                 this.y++;
@@ -136,7 +136,7 @@ public class Rover {
             System.out.println("Skipping command. Reached edge of grid.");
     }
 
-    void moveHorizontal(char currentDirection){
+    private void moveHorizontal(char currentDirection){
         if (!hasReachedEdge(currentDirection)){
             if (currentDirection == 'E')
                 this.x++;

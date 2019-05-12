@@ -30,20 +30,16 @@ public class Rover {
         return currentDirection;
     }
 
-    private void getDirectionIndex(char currentDirection){
-        int index = 0;
-        if(currentDirection == 'N')
+    private void getDirectionIndex(char currentDirection) {
+        if (currentDirection == 'N')
             currentIndex = 0;
-        else if(currentDirection == 'E')
+        else if (currentDirection == 'E')
             currentIndex = 1;
-        else if(currentDirection == 'S')
+        else if (currentDirection == 'S')
             currentIndex = 2;
-        else if(currentDirection == 'W')
+        else if (currentDirection == 'W')
             currentIndex = 3;
     }
-
-    //
-
 
 
     // Validations
@@ -79,23 +75,9 @@ public class Rover {
     }
 
 
-
-    void changeDirection(char currentCommand){
-        if(isValidCommand(currentCommand)) {
-
-            if (currentCommand == 'L') {
-                lowerIndex();
-            }
-            else if (currentCommand == 'R') {
-                increaseIndex();
-            }
-            indexToDirection();
-        }
-        else {
-            System.out.println("Invalid command");
-            System.exit(1);
-        }
-
+    // Index Methods
+    private void indexToDirection() {
+        currentDirection = validDirections[currentIndex];
     }
 
     private void increaseIndex(){
@@ -117,10 +99,6 @@ public class Rover {
             currentIndex--;
         }
         indexToDirection();
-    }
-
-    private void indexToDirection() {
-        currentDirection = validDirections[currentIndex];
     }
 
 
@@ -158,6 +136,24 @@ public class Rover {
         }
         else {
             System.out.println("Invalid direction");
+            System.exit(1);
+        }
+
+    }
+
+    void changeDirection(char currentCommand){
+        if(isValidCommand(currentCommand)) {
+
+            if (currentCommand == 'L') {
+                lowerIndex();
+            }
+            else if (currentCommand == 'R') {
+                increaseIndex();
+            }
+            indexToDirection();
+        }
+        else {
+            System.out.println("Invalid command");
             System.exit(1);
         }
 

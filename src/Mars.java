@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Mars {
 
-    private static int maxX;
-    private static int maxY;
+    public static int maxX;
+    public static int maxY;
 
     public static void main(String[] args){
 

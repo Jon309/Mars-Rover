@@ -5,7 +5,6 @@ public class Rover {
     private char currentDirection = 'N';
     private int currentIndex = 0;
     private char validDirections[] = {'N', 'E', 'S', 'W'};
-    private char validCommands[] = {'L', 'R', 'M'};
 
 
     // Constructor
@@ -62,7 +61,23 @@ public class Rover {
             return false;
     }
 
-    //
+    public boolean hasReachedEdge(char currentDirection){
+        if (currentDirection == 'N' && y == Mars.maxY){
+            return true;
+        }
+        else if (currentDirection == 'S' && y == 0){
+            return true;
+        }
+        else if (currentDirection == 'E' && x == Mars.maxX){
+            return true;
+        }
+        else if (currentDirection == 'W' && x == 0){
+            return true;
+        }
+        else
+            return false;
+    }
+
 
 
     void changeDirection(char currentCommand){
@@ -107,22 +122,29 @@ public class Rover {
     private void indexToDirection() {
         currentDirection = validDirections[currentIndex];
     }
-    
+
 
     // Movement
-    void moveVertical(char currentCommand){
-        if (currentCommand == 'N')
-            this.y++;
-        if (currentCommand == 'S')
-            this.y--;
+    void moveVertical(char currentDirection){
+        if (!hasReachedEdge(currentDirection)){
+            if (currentDirection == 'N')
+                this.y++;
+            if (currentDirection == 'S')
+                this.y--;
+        }
+        else
+            System.out.println("Skipping command. Reached edge of grid.");
     }
 
-    void moveHorizontal(char currentCommand){
-        if (currentCommand == 'E')
-            this.x++;
-        if (currentCommand == 'W')
-            this.x--;
-
+    void moveHorizontal(char currentDirection){
+        if (!hasReachedEdge(currentDirection)){
+            if (currentDirection == 'E')
+                this.x++;
+            if (currentDirection == 'W')
+                this.x--;
+        }
+        else
+            System.out.println("Skipping command. Reached edge of grid.");
     }
 
     void moveForward(){

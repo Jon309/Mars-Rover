@@ -24,6 +24,9 @@ Once each rover has received and completely executed its given instructions, it 
 To implement my solution, I created two classes Mars and Rover. Mars contains the grid size and creates the rover instances. The Mars class also handles the user input and runs the executeCommands() function which makes calls to the Rover class. Inside the Rover class is where the majority of the logic is contained. The Rover checks to make sure each command is both valid and physically possible given the grid size. Upon construction of the Rover instance, the currentDirection of the Rover is converted to an index variable of type Integer, in order to make it easier to cycle through the validDirections[] in correct order. There are methods to handle the rotations as well as the actual movements made by the Rover. I made as many of the variable and methods private as I could, treating this as if it was a serious program actually being used by NASA.
 
 <b>ASSUMPTIONS:</b>
+
 -The Rover will never run out of battery or power
+
 -The Rover can only move forward, not backwards
+
 -The Rover can only rotate at 90 degree angles, and only move 1 unit at a time

@@ -41,7 +41,7 @@ public class Mars {
                 else if (command == 'M')
                     rover.moveForward();
                 else {
-                    System.out.println("Quiting...");
+                    System.out.println("Disconnecting from Rover... Goodbye");
                     System.exit(1);
                 }
             }

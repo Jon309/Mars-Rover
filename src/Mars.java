@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Mars {
 
-    public static int maxX;
-    public static int maxY;
+    private static int maxX;
+    private static int maxY;
 
     public static void main(String[] args){
 
@@ -30,6 +30,22 @@ public class Mars {
 
             System.out.println(rover.getX() + " " + rover.getY() + " " + rover.getCurrentDirection());
         }
+    }
+
+    public static int getMaxX() {
+        return maxX;
+    }
+
+    public static int getMaxY() {
+        return maxY;
+    }
+
+    public static void setMaxX(int maxX) {
+        Mars.maxX = maxX;
+    }
+
+    public static void setMaxY(int maxY) {
+        Mars.maxY = maxY;
     }
 
     public static void executeCommands(String roverCommands, Rover rover) {

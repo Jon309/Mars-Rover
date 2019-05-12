@@ -62,13 +62,13 @@ public class Rover {
     }
 
     public boolean hasReachedEdge(char currentDirection){
-        if (currentDirection == 'N' && y == Mars.maxY){
+        if (currentDirection == 'N' && y == Mars.getMaxY()){
             return true;
         }
         else if (currentDirection == 'S' && y == 0){
             return true;
         }
-        else if (currentDirection == 'E' && x == Mars.maxX){
+        else if (currentDirection == 'E' && x == Mars.getMaxX()){
             return true;
         }
         else if (currentDirection == 'W' && x == 0){

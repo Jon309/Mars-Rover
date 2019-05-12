@@ -9,9 +9,9 @@ public class MarsTest {
     @Test
     public void sampleInputOne(){
 
-        testMars.maxX = 5;
-        testMars.maxY = 5;
-        testMars.checkNegativeValues(testMars.maxX, testMars.maxY);
+        testMars.setMaxX(5);
+        testMars.setMaxY(5);
+        testMars.checkNegativeValues(testMars.getMaxX(), testMars.getMaxY());
 
         String roverInitial[] = {"1","2","N"};
         String roverCommands = "LMLMLMLMM";
@@ -19,7 +19,7 @@ public class MarsTest {
         Rover testRover = new Rover(Integer.parseInt(roverInitial[0]), Integer.parseInt(roverInitial[1]),
                 roverInitial[2].charAt(0));
 
-        testMars.checkMaxValues(Integer.parseInt(roverInitial[0]), Integer.parseInt(roverInitial[1]), testMars.maxX, testMars.maxY);
+        testMars.checkMaxValues(Integer.parseInt(roverInitial[0]), Integer.parseInt(roverInitial[1]), testMars.getMaxX(), testMars.getMaxY());
         testMars.checkNegativeValues(Integer.parseInt(roverInitial[0]), Integer.parseInt(roverInitial[1]));
 
         testMars.executeCommands(roverCommands, testRover);
@@ -31,9 +31,9 @@ public class MarsTest {
     @Test
     public void sampleInputTwo(){
 
-        testMars.maxX = 5;
-        testMars.maxY = 5;
-        testMars.checkNegativeValues(testMars.maxX, testMars.maxY);
+        testMars.setMaxX(5);
+        testMars.setMaxY(5);
+        testMars.checkNegativeValues(testMars.getMaxX(), testMars.getMaxY());
 
         int maxX = 5;
         int maxY = 5;
@@ -45,7 +45,7 @@ public class MarsTest {
         Rover testRover = new Rover(Integer.parseInt(roverInitial[0]), Integer.parseInt(roverInitial[1]),
                 roverInitial[2].charAt(0));
 
-        testMars.checkMaxValues(Integer.parseInt(roverInitial[0]), Integer.parseInt(roverInitial[1]), testMars.maxX, testMars.maxY);
+        testMars.checkMaxValues(Integer.parseInt(roverInitial[0]), Integer.parseInt(roverInitial[1]), testMars.getMaxX(), testMars.getMaxY());
         testMars.checkNegativeValues(Integer.parseInt(roverInitial[0]), Integer.parseInt(roverInitial[1]));
 
         testMars.executeCommands(roverCommands, testRover);

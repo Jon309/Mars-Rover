@@ -1,7 +1,7 @@
 public class Rover {
 
-    private int x = 0;
-    private int y = 0;
+    private int x;
+    private int y;
     private char currentDirection = 'N';
     private int currentIndex = 0;
     private char validDirections[] = {'N', 'E', 'S', 'W'};
@@ -103,6 +103,22 @@ public class Rover {
 
 
     // Movement
+    void moveForward(){
+        if (isValidDirection(currentDirection)){
+            if (currentDirection == 'N' || currentDirection == 'S'){
+                moveVertical(currentDirection);
+            }
+            else if (this.currentDirection == 'E' || currentDirection == 'W'){
+                moveHorizontal(currentDirection);
+            }
+        }
+        else {
+            System.out.println("Invalid direction");
+            System.exit(1);
+        }
+
+    }
+
     private void moveVertical(char currentDirection){
         if (!hasReachedEdge(currentDirection)){
             if (currentDirection == 'N')
@@ -125,21 +141,6 @@ public class Rover {
             System.out.println("Skipping command. Reached edge of grid.");
     }
 
-    void moveForward(){
-        if (isValidDirection(currentDirection)){
-            if (currentDirection == 'N' || currentDirection == 'S'){
-                moveVertical(currentDirection);
-            }
-            else if (this.currentDirection == 'E' || currentDirection == 'W'){
-                moveHorizontal(currentDirection);
-            }
-        }
-        else {
-            System.out.println("Invalid direction");
-            System.exit(1);
-        }
-
-    }
 
     void changeDirection(char currentCommand){
         if(isValidCommand(currentCommand)) {
